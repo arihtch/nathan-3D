@@ -36,8 +36,36 @@ class renderEngine():
     
     def renderScreen(self):
         turtle.update()
+    
+    def addGotoToRenderQueue(self, xPosition: int, yPosition: int):
+        if yPosition > self.yWindowLength/2:
+            yPosition = int(self.yWindowLength/2)
+        
+        if yPosition < -self.yWindowLength/2:
+            yPosition = int(-self.yWindowLength/2)
+        
+        if xPosition > self.xWindowLength/2:
+            xPosition = int(self.xWindowLength/2)
+        
+        if xPosition < -self.xWindowLength/2:
+            xPosition = int(-self.xWindowLength/2)
+        
+
+        self.renderQueue[self.renderQueueIndex] = "gx{}gy{}".format(xPosition, yPosition)
+        self.renderQueueIndex += 1
 
 
+app = renderEngine(500, 500)
+app.addGotoToRenderQueue(400, 400)
+
+app.addGotoToRenderQueue(-400, 400)
+
+app.addGotoToRenderQueue(-400, -400)
+
+app.addGotoToRenderQueue(400, -400)
+
+app.addGotoToRenderQueue(100, 100)
+print(app.renderQueue)
 while True:
     turtle.fd(1)
     turtle.update()
