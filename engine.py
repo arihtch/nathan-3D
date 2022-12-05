@@ -4,6 +4,8 @@ import renderPoint
 class renderEngine():
     def __init__(self, xWindowLength: int, yWindowLength: int) -> None:
         turtle.tracer(False)
+        self.renderQueue = {}
+        self.renderQueueIndex = 0
         # setting up turtle
 
         self.xWindowLength = xWindowLength
