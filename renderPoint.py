@@ -1,16 +1,11 @@
 class renderPoint:
-    def __init__(self, xPosition: int, yPosition: int,  connectingPoint) -> None:
+    def __init__(self, xPosition: int, yPosition: int, command:str) -> None:
+        self.commandType = command
         self.xPosition = xPosition
         self.yPosition = yPosition
-
+        self.colour = ""
+        self.penup = False
+        self.pendown = False
+        self.startfill = False
+        self.endfill = False
         
-        self.connectingPoint = None
-
-        if connectingPoint != None:
-            self.connectingPoint = connectingPoint
-
-    def setConnectingPoint(self, connectingPoint) -> None:
-        if connectingPoint == renderPoint:
-            self.connectingPoint = connectingPoint
-        else:
-            self.connectingPoint = None
